@@ -29,14 +29,14 @@
 		Je zult deze boeken dan in een nette lijst kunnen bezien en sorteren.
 		</p>
 
-		<form class="p-5 mx-auto" id="loginForm">
+		<form class="p-5 mx-auto" id="loginForm" action="./assets/php/login/sendLogin.php" method="POST">
 			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label">Nickname</label>
-				<input type="email" class="form-control" name="nickname" id="exampleInputEmail1">
+				<label for="nickname" class="form-label">Nickname</label>
+				<input type="email" class="form-control" name="usnm">
 			</div>
 			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Password</label>
-				<input type="password" class="form-control" name="password" id="exampleInputPassword1">
+				<label for="pasword" class="form-label">Password</label>
+				<input type="password" class="form-control" name="pwd">
 			</div>
 			<button type="submit" class="btn btn-success">Submit</button>
 		</form>
