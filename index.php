@@ -1,5 +1,7 @@
 <?php
+    session_start();
 
+	include_once './assets/php/db/conn.php';
 ?>
 
 <!DOCTYPE html>
@@ -29,19 +31,46 @@
 		Je zult deze boeken dan in een nette lijst kunnen bezien en sorteren.
 		</p>
 
-		<form class="p-5 mx-auto" id="loginForm" action="./assets/php/login/sendLogin.php" method="POST">
-			<div class="mb-3">
-				<label for="nickname" class="form-label">Nickname</label>
-				<input type="email" class="form-control" name="usnm">
+		<div id="loginRegisterDiv" class="p-5 mx-auto">
+			<div id="login-div" style="display: block;">
+				<form id="loginForm" action="./assets/php/login/login.php" method="post">
+					<div class="mb-3">
+						<label for="nickname" class="form-label">Nickname</label>
+						<input type="text" class="form-control" name="name" required>
+					</div>
+					<div class="mb-3">
+						<label for="pasword" class="form-label">Password</label>
+						<input type="password" class="form-control" name="pswd" required>
+					</div>
+					<button type="submit" class="btn btn-success">Login</button>
+					<button class="btn btn-info float-end" id="loginRegistSwapbtn" onclick="swapLoginRegister()">register</button>
+				</form>
 			</div>
-			<div class="mb-3">
-				<label for="pasword" class="form-label">Password</label>
-				<input type="password" class="form-control" name="pwd">
+
+			<div id="register-div" style="display: none;">
+				<form id="registerForm" action="./assets/php/login/register.php" method="post">
+					<div class="mb-3">
+						<label for="nickname" class="form-label">Nickname</label>
+						<input type="text" class="form-control" name="name" required>
+					</div>
+					<div class="mb-3">
+						<label for="pasword" class="form-label">Password</label>
+						<input type="password" class="form-control" name="pswdRegister1" required>
+					</div>
+					<div class="mb-3">
+						<label for="pasword" class="form-label">Repeat Password</label>
+						<input type="password" class="form-control" name="pswdRegister2" required>
+					</div>
+					<button type="submit" class="btn btn-success">Register</button>
+					<button class="btn btn-info float-end" id="loginRegistSwapbtn" onclick="swapLoginRegister()">login</button>
+				</form>
 			</div>
-			<button type="submit" class="btn btn-success">Submit</button>
-		</form>
+		</div>
 
 	</div>
+
+	<!-- JavaScript -->
+	<script src="./assets/js/loginRegistForm.js"></script>
 
 </body>
 
