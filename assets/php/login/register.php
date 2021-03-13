@@ -32,9 +32,10 @@ class register
 				$stmt = $con->prepare("INSERT INTO `users`(`naam`, `password`) VALUES ('$name', '$password')");
 				$stmt->execute();
 
-				echo "register successful";
-				echo "<br><br>";
-				echo "<button onclick=\"window.location.href='http://localhost/boekenLijst';\">Go back</button>";
+				$_SESSION["loggedIn"] = true;
+				$_SESSION["name"] = $_POST['name'];
+
+				header("Refresh:0; url=http://localhost/boekenLijst/assets/screen/mainScreen.php");
 			}
 		} catch (PDOException $e) {
 			echo "Something went wrong: " . $e->getMessage();
@@ -47,14 +48,17 @@ if (strlen($name) >= 1 && strlen($password) >= 1) {
 		echo "Use the same password";
 		echo "<br><br>";
 		var_dump($name);
-		echo "<button onclick=\"window.location.href='http://localhost/boekenLijst';\">Go back</button>";
+		echo "<button onclick=\"window.location.href='http://localhost/boekenLijst/assets/screen/registerScreen.php';\">Go back</button>";
 	} else {
+		$password = password_hash($password, PASSWORD_DEFAULT);
+
 		$reg = new register();
 		$reg->register($con, $name, $password);
 	}
 } else {
-	echo "Fill out the form";
+	echo "<p style='text-align: center'>Niet alles is ingevuld</p>";
 	echo "<br><br>";
-	var_dump($name);
-	echo "<button onclick=\"window.location.href='http://localhost/boekenLijst';\">Go back</button>";
+	echo "<div style='text-align: center;'>";
+	echo "<button style='position: absolute;' onclick=\"window.location.href='http://localhost/boekenLijst';\">Terug</button>";
+	echo "</div>";
 }

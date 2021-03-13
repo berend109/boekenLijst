@@ -18,10 +18,10 @@
 		crossorigin="anonymous">
 
 	<!-- custom css -->
-	<link rel="stylesheet" href="./assets/css/index.css">
+	<link rel="stylesheet" href="../../css/index.css">
 
 	<!-- Favicon -->
-	<link rel="icon" href="./assets/img/FaviconIMG.jpg" type="image/gif" sizes="16x16">
+	<link rel="icon" href="../../img/FaviconIMG.jpg" type="image/gif" sizes="16x16">
 
 </head>
 
@@ -34,23 +34,34 @@
 		Met deze applicatie ga jij je persoonlijke boeken bij kunnen houden.<br>
 		Je zult deze boeken dan in een nette lijst kunnen bezien en sorteren.
 		</p>
-		<div id="login-div" class="p-5 mx-auto submitForm">
-			<form name="loginForm" id="loginForm" action="./assets/php/login/login.php" method="post" onsubmit="return checkLoginForm()">
+		
+		<div name="registerForm" id="register-div" class="p-5 mx-auto submitForm">
+			<form id="registerForm" action="../login/register.php" method="post" onsubmit="return checkRegisterForm()">
 				<div class="mb-3">
 					<label for="nickname" class="form-label">Nickname</label>
-					<input type="text" class="form-control" name="name" required>
+					<?php
+						$name = ($_SESSION['name']);
+						echo '<input type="text" class="form-control" name="name" value="'. $name .'" ?>';
+					?>
 				</div>
 				<div class="mb-3">
 					<label for="pasword" class="form-label">Password</label>
-					<input type="password" class="form-control" name="pswd" required>
+					<input type="password" class="form-control" name="pswdRegister1">
 				</div>
-				<button name="loginBTN" type="submit" class="btn btn-success">Login</button>
+				<div class="mb-3">
+					<label for="pasword" class="form-label">Repeat Password</label>
+					<input type="password" class="form-control" name="pswdRegister2">
+				</div>
+				<button type="submit" class="btn btn-success">Registreren</button>
+				<a class='btn btn-danger float-end' onclick="window.location.href='http://localhost/boekenLijst'">Terug naar login</a>
 			</form>
 		</div>
 
 	</div>
 
-	<script src="./assets/js/checkForm.js"></script>
+	<!-- JS -->
+	<script src="../../js/checkForm.js"></script>
+	<script src="../../js/registerQuestion.js"></script>
 
 </body>
 
