@@ -53,7 +53,7 @@
 					<input type="password" class="form-control" name="pswdRegister2">
 				</div>
 				<button type="submit" class="btn btn-success">Registreren</button>
-				<a class='btn btn-danger float-end' onclick="window.location.href='http://localhost/boekenLijst'">Terug naar login</a>
+				<a class='btn btn-danger float-end' onclick="window.location.href='http://localhost/boekenlijst'">Terug naar login</a>
 			</form>
 		</div>
 

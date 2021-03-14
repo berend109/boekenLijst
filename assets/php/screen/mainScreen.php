@@ -47,8 +47,8 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 } else {
     echo "You are not logged in !!";
 	echo '<br><br>';
-	echo "<button onclick=\"window.location.href='http://localhost/boekenLijst/';\">Go back</button>";
-    header("Refresh:5; url=http://localhost/boekenLijst/");
+	echo "<button onclick=\"window.location.href='http://localhost/boekenlijst/';\">Go back</button>";
+    header("Refresh:5; url=http://localhost/boekenlijst/");
 }
 
 ?>

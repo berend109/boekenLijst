@@ -22,12 +22,12 @@ class login {
 		if ($user && password_verify($password, $user['password'])) {
 			$_SESSION["name"] = $_POST['name'];
 			$_SESSION["loggedIn"] = true;
-			header("Refresh:0; url=http://localhost/boekenLijst/assets/php/screen/mainScreen.php");
+			header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/mainScreen.php");
 		} elseif ($user) {
 			echo "<p style='text-align: center'>wrong password</p>";
 			echo "<br><br>";
 			echo "<div style='text-align: center;'>";
-			echo "<button style='position: absolute;' onclick=\"window.location.href='http://localhost/boekenLijst';\">Terug</button>";
+			echo "<button style='position: absolute;' onclick=\"window.location.href='http://localhost/boekenlijst';\">Terug</button>";
 			echo "</div>";
 		} else {
 			$_SESSION["name"] = $_POST['name'];
@@ -43,6 +43,6 @@ if (strlen($name) && strlen($password)) {
 	echo "<p style='text-align: center'>Niet alles is ingevuld</p>";
 	echo "<br><br>";
 	echo "<div style='text-align: center;'>";
-	echo "<button style='position: absolute;' onclick=\"window.location.href='http://localhost/boekenLijst';\">Terug</button>";
+	echo "<button style='position: absolute;' onclick=\"window.location.href='http://localhost/boekenlijst';\">Terug</button>";
 	echo "</div>";
 }
