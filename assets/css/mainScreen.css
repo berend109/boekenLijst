@@ -1,0 +1,18 @@
+/* side bar styling */
+.side-navbar {
+	width: 20%;
+	height: 100%;
+	position: fixed;
+	margin-left: -22%;
+	transition: 1s;
+	box-shadow: 10px 10px 5px grey;
+	border-radius: 0px 20px;
+}
+
+.active-nav {
+	margin-left: 0;
+}
+
+.submitBookForm {
+	max-width: 75%;
+}

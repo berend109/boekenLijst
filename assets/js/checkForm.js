@@ -21,3 +21,7 @@ function checkRegisterForm() {
 		return false;
 	}
 }
+
+function checkBookForm() {
+	// TODO: fill this function so its checks if there is even a book submitted when done.
+}
