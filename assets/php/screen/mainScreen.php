@@ -14,14 +14,13 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 	<title>Boeken Lijst App</title>
 
 	<!-- bootstrap 5 css -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
-		rel="stylesheet" 
-		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 		crossorigin="anonymous">
 
 	<!-- custom css -->
-	<!-- Hiero een eigen custom css beginnen -->
-	<!-- <link rel="stylesheet" href="../css/mainScreen.css"> -->
+	<link rel="stylesheet" href="../css/mainScreen.css">
 
 	<!-- favicon -->
 	<link rel="icon" href="../img/FaviconIMG.jpg" type="image/gif" sizes="16x16">
@@ -49,7 +48,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
     echo "You are not logged in !!";
 	echo '<br><br>';
 	echo "<button onclick=\"window.location.href='http://localhost/boekenLijst/';\">Go back</button>";
-    header("Refresh:5; url=../../../index.php");
+    header("Refresh:5; url=http://localhost/boekenLijst/");
 }
 
 ?>

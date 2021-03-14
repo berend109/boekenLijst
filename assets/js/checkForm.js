@@ -19,5 +19,5 @@ function checkRegisterForm() {
 	} else if (checkPSWD1 !== checkPSWD2) {
 		alert("Wachtwoorden dienen het zelfde te zijn")
 		return false;
-	}	
+	}
 }
