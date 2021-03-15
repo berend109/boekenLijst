@@ -14,7 +14,9 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 		<title>Boeken Lijst App</title>
 
 		<!-- bootstrap 5 css -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+			rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+			crossorigin="anonymous">
 
 		<!-- custom css -->
 		<link rel="stylesheet" href="../../css/mainScreen.css">
@@ -45,29 +47,48 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 		<div class="my-container active-cont">
 			<div class="content">
 				<div class="text-light bg-secondary side-navbar" id="sidebar">
-					<ul class="nav flex-column text-white w-100">
-						<a class="nav-link h3 text-white my-2 text-center">
-							Boek Toevoegen
-						</a>
-						<!-- send book info to db -->
-						<!-- TODO: make this work -->
-						<form class="d-grid" action="../books/sendBooksToDB.php" method="post">
-							<div class="p-3">
-								<p for="nickname" class=" text-center">Titel</p>
-								<input type="text" class="form-control text-center" name="title" required>
-							</div>
-							<div class="p-3">
-								<p for="pasword" class=" text-center">Auteur</p>
-								<input type="password" class="form-control text-center" name="author" required>
-							</div>
-							<!-- add more like the design -->
-							<div class="p-3">
-								<button class="btn btn-danger form-control">Submit boek</button>
-							</div>
-						</form>
-					</ul>
+					<a class="nav-link h3 text-white my-2 text-center">
+						Boek Toevoegen
+					</a>
+					<form class="d-grid" action="../books/sendBooksToDB.php" method="post" enctype="multipart/form-data">
+						<div class="mt-4">
+							<p class="text-center form-title">Titel</p>
+							<input type="text" class="form-control text-center" name="title" required>
+						</div>
+						<div class="mt-4">
+							<p class="text-center form-title">Auteur</p>
+							<input type="text" class="form-control text-center" name="author" required>
+						</div>
+						<div class="mt-4">
+							<p class="text-center form-title">Foto</p>
+							<input type="file" class="form-control" name="picture" required>
+						</div>
+						<div class="mt-4">
+							<p class="text-center form-title">Korte notitie</p>
+							<input type="text" class="form-control text-center" name="shortNote" required>
+						</div>
+						<div class="mt-4">
+							<p class="text-center form-title">Wel of niet in bezit</p>
+							<select class="form-select" name="ownership">
+								<option value="0">nee</option>
+								<option value="1">ja</option>
+							</select>
+						</div>
+						<div class="mt-4">
+							<p class="text-center form-title">Wel of niet in gelezen</p>
+							<select class="form-select" name="read">
+								<option value="no">nee</option>
+								<option value="busy">bezig</option>
+								<option value="yes">ja</option>
+							</select>
+						</div>
+						<!-- add more like the design -->
+						<div class="mt-5">
+							<button type="submit" class="btn btn-danger form-control">Submit boek</button>
+						</div>
+					</form>
 				</div>
-				<div class="container">
+				<div class="container" id="booklistContainer">
 					<p>hello world</p>
 				</div>
 			</div>

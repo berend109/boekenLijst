@@ -7,4 +7,4 @@ if(!isset($_SESSION))
 
 session_destroy();
 
-header("Refresh:0; url=http://localhost/boekenLijst");
+header("Refresh:0; url=http://localhost/boekenlijst");

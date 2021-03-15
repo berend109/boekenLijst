@@ -16,3 +16,12 @@
 .submitBookForm {
 	max-width: 75%;
 }
+
+/* Book list styling */
+#booklistContainer {
+	max-width: 50%;
+}
+
+.form-title {
+	margin-bottom: 0px;
+}

@@ -22,6 +22,7 @@ class login {
 		if ($user && password_verify($password, $user['password'])) {
 			$_SESSION["name"] = $_POST['name'];
 			$_SESSION["loggedIn"] = true;
+			$_SESSION["id"] = $user['id'];
 			header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/mainScreen.php");
 		} elseif ($user) {
 			echo "<p style='text-align: center'>wrong password</p>";
