@@ -15,7 +15,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 
 		<!-- bootstrap 5 css -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-			rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+			rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 			crossorigin="anonymous">
 
 		<!-- custom css -->
@@ -47,9 +47,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 		<div class="my-container active-cont">
 			<div class="content">
 				<div class="text-light bg-secondary side-navbar" id="sidebar">
-					<a class="nav-link h3 text-white my-2 text-center">
-						Boek Toevoegen
-					</a>
+					<a class="nav-link h3 text-white my-2 text-center">Boek Toevoegen</a>
 					<form class="d-grid" action="../books/sendBooksToDB.php" method="post" enctype="multipart/form-data">
 						<div class="mt-4">
 							<p class="text-center form-title">Titel</p>
@@ -61,21 +59,21 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 						</div>
 						<div class="mt-4">
 							<p class="text-center form-title">Foto</p>
-							<input type="file" class="form-control" name="picture" required>
+							<input type="file" class="form-control" name="picture">
 						</div>
 						<div class="mt-4">
 							<p class="text-center form-title">Korte notitie</p>
-							<input type="text" class="form-control text-center" name="shortNote" required>
+							<textarea class="form-control text-center" name="shortNote" maxlength="100" placeholder="Max 100 karakters"></textarea>
 						</div>
 						<div class="mt-4">
 							<p class="text-center form-title">Wel of niet in bezit</p>
 							<select class="form-select" name="ownership">
-								<option value="0">nee</option>
-								<option value="1">ja</option>
+								<option value="no">nee</option>
+								<option value="yes">ja</option>
 							</select>
 						</div>
 						<div class="mt-4">
-							<p class="text-center form-title">Wel of niet in gelezen</p>
+							<p class="text-center form-title">Wel of niet gelezen</p>
 							<select class="form-select" name="read">
 								<option value="no">nee</option>
 								<option value="busy">bezig</option>
@@ -84,7 +82,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 						</div>
 						<!-- add more like the design -->
 						<div class="mt-5">
-							<button type="submit" class="btn btn-danger form-control">Submit boek</button>
+							<button type="submit" class="btn btn-danger form-control" name="submit">Submit boek</button>
 						</div>
 					</form>
 				</div>

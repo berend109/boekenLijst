@@ -17,6 +17,10 @@
 	max-width: 75%;
 }
 
+textarea {
+	resize: none;
+}
+
 /* Book list styling */
 #booklistContainer {
 	max-width: 50%;
