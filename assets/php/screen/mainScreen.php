@@ -68,16 +68,16 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Wel of niet in bezit</p>
 							<select class="form-select" name="ownership">
-								<option value="no">nee</option>
-								<option value="yes">ja</option>
+								<option value="nee">nee</option>
+								<option value="ja">ja</option>
 							</select>
 						</div>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Wel of niet gelezen</p>
 							<select class="form-select" name="read">
-								<option value="no">nee</option>
-								<option value="busy">bezig</option>
-								<option value="yes">ja</option>
+								<option value="nee">nee</option>
+								<option value="bezig">bezig</option>
+								<option value="ja">ja</option>
 							</select>
 						</div>
 						<div class="mt-2 p-4">
@@ -85,12 +85,13 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 						</div>
 					</form>
 				</div>
-				<div class="container" id="booklistContainer">
-					<?php
-						require_once '../books/displayBooks.php';
-					?>
-				</div>
 			</div>
+		</div>
+
+		<div class="container mt-5" id="booklistContainer">
+			<?php
+				require_once '../books/displayBooks.php';
+			?>
 		</div>
 
 		<script src="../../js/sidebar.js"></script>

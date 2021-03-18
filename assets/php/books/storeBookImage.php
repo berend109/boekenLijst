@@ -19,17 +19,18 @@ function storeBookImage($imageDestination) {
 		if ($imageError === 0) {
 			if($imageSize < 1000000) {
 				move_uploaded_file($imageTMPName, $imageDestination);
-				echo "Foto is opgeslagen";
-				echo "<br><br>";
+				return $imageDestination;
 			} else {
 				echo "Joun foto is te groot (max 1000000 KB)";
+				return 0;
 			}
 		} else {
 			echo "Er was een error met het uploaden van je foto.";
+			return 0;
 		}
 	} else {
 		echo "Je hebt verkeerde foto type geupload";
+		return 0;
 	}
 
-	return $imageDestination;
 }

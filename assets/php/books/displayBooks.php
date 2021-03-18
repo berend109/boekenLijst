@@ -15,20 +15,55 @@ function displayBook($book)
 		echo 'test';
 	} else {
 
-		echo '<div class="card mb-3" style="max-width: 540px;">';
-		echo '<div class="row g-0">';
-			echo '<div class="col-md-4">';
-			echo '<img src="..." alt="...">';
-			echo '</div>';
-			echo '<div class="col-md-8">';
-			echo '<div class="card-body">';
-				echo '<h5 class="card-title">Card title</h5>';
-				echo '<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>';
-				echo '<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>';
-			echo '</div>';
-			echo '</div>';
-		echo '</div>';
-		echo '</div>';
+		$bookTitle = $book['name'];
+		$bookAuthor = $book['author'];
+		$bookOwnership = $book['ownership'];
+		$bookReading = $book['reading'];
+		$bookShortNote = $book['shortNote'];
+		$bookImageLocation = $book['imageLocation'];
+
+		echo '
+		<div class="row">
+			<div class="col-10 ">
+				<div class="card mb-3" id="bookCard">
+					<div class="row g-0">
+						<div class="col-md-4">
+							<div class="card-header">
+							Boek foto
+							</div>
+							<img id="bookImage" src="'. $bookImageLocation .'" alt="Book cover">
+						</div>
+						<div class="col-md-4">
+							<div class="card-header">
+							Details
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">Titel: '. $bookTitle .'</h5>
+								<h5 class="card-title">Auteur: '. $bookAuthor .'</h5>
+								<h5 class="card-title">Bezit: '. $bookOwnership .'</h5>
+								<h5 class="card-title">Lezen: '. $bookReading .'</h5>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card-header">
+							Korte notitie
+							</div>
+							<div class="card-body">						
+								<p class="card-text">'. $bookShortNote . '</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="d-grid gap-2">
+					<button type="button" class="btn btn-success">Aanpassen</button>
+					<button type="button" class="btn btn-info">Details</button>
+					<button type="button" class="btn btn-danger">Verwijderen</button>
+				</div>
+			</div>
+		</div>
+		';
 
 	}
 }

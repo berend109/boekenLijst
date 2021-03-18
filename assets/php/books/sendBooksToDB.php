@@ -37,7 +37,12 @@ if (isset($_POST['submit'])) {
 		}
 	}
 
-	$reg = new sendBook();
-	$reg->sendBook($con, $bookTitle, $imageLocation, $bookAuthor, $userid, $shortNote, $owner, $read);
+	if($imageLocation === 0) {
+		echo " error<br><br>
+		<button onclick=\"window.location.href='http://localhost/boekenlijst/assets/php/screen/mainScreen.php';\">Probeer opnieuw een boek te uploaden</button>";
+	} else {
+		$reg = new sendBook();
+		$reg->sendBook($con, $bookTitle, $imageLocation, $bookAuthor, $userid, $shortNote, $owner, $read);
+	}
 
 }

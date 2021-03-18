@@ -20,17 +20,21 @@ textarea {
 	resize: none;
 }
 
+#submitBTN {
+	font-size: 20px;
+}
+
 /* Book list styling */
 #booklistContainer {
 	max-width: 50%;
 }
 
-.form-title {
-	margin-bottom: 0px;
+#bookImage {
+	max-width: 100%;
 }
 
-#submitBTN {
-	font-size: 20px;
+#bookCard {
+	max-width: 100%;
 }
 
 /* Top bar styling */
