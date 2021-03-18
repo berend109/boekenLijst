@@ -49,30 +49,30 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 				<div class="text-light bg-secondary side-navbar" id="sidebar">
 					<a class="nav-link h3 text-white my-2 text-center">Boek Toevoegen</a>
 					<form class="d-grid" action="../books/sendBooksToDB.php" method="post" enctype="multipart/form-data">
-						<div class="mt-4">
+						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Titel</p>
 							<input type="text" class="form-control text-center" name="title" required>
 						</div>
-						<div class="mt-4">
+						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Auteur</p>
 							<input type="text" class="form-control text-center" name="author" required>
 						</div>
-						<div class="mt-4">
+						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Foto</p>
 							<input type="file" class="form-control" name="picture">
 						</div>
-						<div class="mt-4">
+						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Korte notitie</p>
 							<textarea class="form-control text-center" name="shortNote" maxlength="100" placeholder="Max 100 karakters"></textarea>
 						</div>
-						<div class="mt-4">
+						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Wel of niet in bezit</p>
 							<select class="form-select" name="ownership">
 								<option value="no">nee</option>
 								<option value="yes">ja</option>
 							</select>
 						</div>
-						<div class="mt-4">
+						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Wel of niet gelezen</p>
 							<select class="form-select" name="read">
 								<option value="no">nee</option>
@@ -80,14 +80,15 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 								<option value="yes">ja</option>
 							</select>
 						</div>
-						<!-- add more like the design -->
-						<div class="mt-5">
-							<button type="submit" class="btn btn-danger form-control" name="submit">Submit boek</button>
+						<div class="mt-2 p-4">
+							<button id="submitBTN" type="submit" class="btn btn-danger form-control py-2" name="submit">Boek toevoegen</button>
 						</div>
 					</form>
 				</div>
 				<div class="container" id="booklistContainer">
-					<p>hello world</p>
+					<?php
+						require_once '../books/displayBooks.php';
+					?>
 				</div>
 			</div>
 		</div>

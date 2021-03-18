@@ -27,21 +27,10 @@ if (isset($_POST['submit'])) {
 		public function sendBook($con, $bookTitle, $imageLocation, $bookAuthor, $userid, $shortNote, $owner, $read)
 		{
 			try {
-				$stmt = $con->prepare("SELECT * FROM `books` WHERE `name` = ?");
-				$stmt->execute([$bookTitle]);
-				$book = $stmt->fetch();
+				$stmt = $con->prepare("INSERT INTO `books`(`name`, `author`, `shortNote`, `imageLocation`, `reading`, `ownership`, `usrId`, `dataAdded`) VALUES ('$bookTitle','$bookAuthor','$shortNote','$imageLocation','$read','$owner','$userid', NOW())");
+				$stmt->execute();
 
-				if ($book) {
-					echo "Boek is al toegevoegd.";
-					echo "<br><br>";
-					echo "<button onclick=\"window.location.href='http://localhost/boekenlijst/assets/php/screen/mainScreen.php';\">Go back</button>";
-				} else {
-					// INSERT QUERY
-					$stmt = $con->prepare("INSERT INTO `books`(`name`, `author`, `shortNote`, `imageLocation`, `reading`, `ownership`, `usrId`, `dataAdded`) VALUES ('$bookTitle','$bookAuthor','$shortNote','$imageLocation','$read','$owner','$userid', NOW())");
-					$stmt->execute();
-
-					header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/mainScreen.php");
-				}
+				header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/mainScreen.php");
 			} catch (PDOException $e) {
 				echo "Something went wrong: " . $e->getMessage();
 			}
