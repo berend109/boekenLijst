@@ -16,28 +16,28 @@ if (isset($_POST['submit'])) {
 	$shortNote = $_POST['shortNote'];
 	$owner = $_POST['ownership'];
 	$read = $_POST['read'];
-	// store image local
+	// store image local and get imageDestination variable back with the location.
 	require_once('storeBookImage.php');
+	$imageLocation = storeBookImage($mageDestination);
 
 	class sendBook
 	{
 		public function __construct() {}
 
-		public function sendBook($con, $bookTitle, $imageDestination, $bookAuthor, $userid, $shortNote, $owner, $read)
+		public function sendBook($con, $bookTitle, $imageLocation, $bookAuthor, $userid, $shortNote, $owner, $read)
 		{
 			try {
 				$stmt = $con->prepare("SELECT * FROM `books` WHERE `name` = ?");
 				$stmt->execute([$bookTitle]);
 				$book = $stmt->fetch();
 
-				// TODO: make a check so you don't
 				if ($book) {
 					echo "Boek is al toegevoegd.";
 					echo "<br><br>";
 					echo "<button onclick=\"window.location.href='http://localhost/boekenlijst/assets/php/screen/mainScreen.php';\">Go back</button>";
 				} else {
 					// INSERT QUERY
-					$stmt = $con->prepare("INSERT INTO `books`(`name`, `author`, `shortNote`, `imageLocation`, `reading`, `ownership`, `usrId`, `dataAdded`) VALUES ('$bookTitle','$bookAuthor','$shortNote','$imageDestination','$read','$owner','$userid', NOW())");
+					$stmt = $con->prepare("INSERT INTO `books`(`name`, `author`, `shortNote`, `imageLocation`, `reading`, `ownership`, `usrId`, `dataAdded`) VALUES ('$bookTitle','$bookAuthor','$shortNote','$imageLocation','$read','$owner','$userid', NOW())");
 					$stmt->execute();
 
 					header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/mainScreen.php");
@@ -48,8 +48,7 @@ if (isset($_POST['submit'])) {
 		}
 	}
 
-	// TODO: Check if every required field is filled in.
 	$reg = new sendBook();
-	$reg->sendBook($con, $bookTitle, $imageDestination, $bookAuthor, $userid, $shortNote, $owner, $read);
+	$reg->sendBook($con, $bookTitle, $imageLocation, $bookAuthor, $userid, $shortNote, $owner, $read);
 
 }
