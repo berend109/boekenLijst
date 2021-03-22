@@ -16,18 +16,19 @@ if (isset($_POST['submit'])) {
 	$shortNote = $_POST['shortNote'];
 	$owner = $_POST['ownership'];
 	$read = $_POST['read'];
+	$bookID = uniqid();
 	// store image local and get imageDestination variable back with the location.
 	require_once('storeBookImage.php');
-	$imageLocation = storeBookImage($mageDestination);
+	$imageLocation = storeBookImage($imageDestination);
 
 	class sendBook
 	{
 		public function __construct() {}
 
-		public function sendBook($con, $bookTitle, $imageLocation, $bookAuthor, $userid, $shortNote, $owner, $read)
+		public function sendBook($con, $bookTitle, $imageLocation, $bookAuthor, $userid, $shortNote, $owner, $read, $bookID)
 		{
 			try {
-				$stmt = $con->prepare("INSERT INTO `books`(`name`, `author`, `shortNote`, `imageLocation`, `reading`, `ownership`, `usrId`, `dataAdded`) VALUES ('$bookTitle','$bookAuthor','$shortNote','$imageLocation','$read','$owner','$userid', NOW())");
+				$stmt = $con->prepare("INSERT INTO `books`(`bookID`, `name`, `author`, `shortNote`, `imageLocation`, `reading`, `ownership`, `usrId`, `dataAdded`) VALUES ('$bookID','$bookTitle','$bookAuthor','$shortNote','$imageLocation','$read','$owner','$userid', NOW())");
 				$stmt->execute();
 
 				header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/mainScreen.php");
@@ -42,7 +43,7 @@ if (isset($_POST['submit'])) {
 		<button onclick=\"window.location.href='http://localhost/boekenlijst/assets/php/screen/mainScreen.php';\">Probeer opnieuw een boek te uploaden</button>";
 	} else {
 		$reg = new sendBook();
-		$reg->sendBook($con, $bookTitle, $imageLocation, $bookAuthor, $userid, $shortNote, $owner, $read);
+		$reg->sendBook($con, $bookTitle, $imageLocation, $bookAuthor, $userid, $shortNote, $owner, $read, $bookID);
 	}
 
 }

@@ -21,6 +21,7 @@ function displayBook($book)
 		$bookReading = $book['reading'];
 		$bookShortNote = $book['shortNote'];
 		$bookImageLocation = $book['imageLocation'];
+		$bookID = $book['bookID'];
 
 		echo '
 		<div class="row">
@@ -29,7 +30,7 @@ function displayBook($book)
 					<div class="row g-0">
 						<div class="col-md-4">
 							<div class="card-header">
-							Boek foto
+							Foto boek
 							</div>
 							<img id="bookImage" src="'. $bookImageLocation .'" alt="Book cover">
 						</div>
@@ -48,7 +49,7 @@ function displayBook($book)
 							<div class="card-header">
 							Korte notitie
 							</div>
-							<div class="card-body">						
+							<div class="card-body">
 								<p class="card-text">'. $bookShortNote . '</p>
 							</div>
 						</div>
@@ -57,9 +58,9 @@ function displayBook($book)
 			</div>
 			<div class="col-2">
 				<div class="d-grid gap-2">
-					<button type="button" class="btn btn-success">Aanpassen</button>
-					<button type="button" class="btn btn-info">Details</button>
-					<button type="button" class="btn btn-danger">Verwijderen</button>
+					<a href="./changeDetailScreen.php?bookID=' . $bookID . '" type="button" class="btn btn-success">Aanpassen</a>
+					<a href="./detailScreen.php?bookID=' . $bookID . '" type="button" class="btn btn-info"> Details</a>
+					<a href="../books/removebook.php?bookID=' . $bookID . '" type="button" class="btn btn-danger">Verwijderen</a>
 				</div>
 			</div>
 		</div>
