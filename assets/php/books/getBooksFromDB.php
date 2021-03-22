@@ -28,3 +28,23 @@ function getBook($con, $books)
 
 	return $books;
 }
+
+$bookItem = array();
+
+function getBookItem($con, $bookItem)
+{
+	try {
+		$bookID = $_SESSION['bookID'];
+
+		$stmt = $con->prepare("SELECT * FROM `books` WHERE `bookID` = ?");
+		$stmt->execute([$bookID]);
+
+		foreach (($stmt->fetchAll()) as $bookArray) {
+			array_push($bookItem, $bookArray);
+		}
+	} catch (PDOException $e) {
+		echo "Error: " . $e->getMessage();
+	}
+
+	return $bookItem;
+}
