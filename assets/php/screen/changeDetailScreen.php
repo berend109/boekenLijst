@@ -19,7 +19,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 			crossorigin="anonymous">
 
 		<!-- custom css -->
-		<link rel="stylesheet" href="../../css/mainScreen.css">
+		<link rel="stylesheet" href="../../css/index.css">
 
 		<!-- favicon -->
 		<link rel="icon" href="../../img/FaviconIMG.jpg" type="image/gif" sizes="16x16">
@@ -36,6 +36,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 		</nav>
 
 		<?php
+			$_SESSION["bookID"] = htmlspecialchars($_GET["bookID"]);
 			require_once("../books/changeDetail.php");
 		?>
 

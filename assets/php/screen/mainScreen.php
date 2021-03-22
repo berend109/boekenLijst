@@ -19,6 +19,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 			crossorigin="anonymous">
 
 		<!-- custom css -->
+		<link rel="stylesheet" href="../../css/index.css">
 		<link rel="stylesheet" href="../../css/mainScreen.css">
 
 		<!-- favicon -->

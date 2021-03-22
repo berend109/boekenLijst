@@ -29,15 +29,6 @@ textarea {
 	max-width: 50%;
 }
 
-#bookImage {
-	max-width: 100%;
-}
-
 #bookCard {
 	max-width: 100%;
-}
-
-/* Top bar styling */
-#menu-btn {
-	background-color: #484848 !important;
 }
