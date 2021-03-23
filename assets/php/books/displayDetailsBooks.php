@@ -22,39 +22,67 @@ function displayBook($book)
 		$bookShortNote = $book['shortNote'];
 		$bookImageLocation = $book['imageLocation'];
 		$bookID = $book['bookID'];
+		$bookRating = $book['rating'];
+		$bookReview = $book['review'];
 
 		echo '
 		<div class="container">
 			<div class="row">
-				<div class="col-8 p-5">
-					<p class="display-1">'. $bookTitle .'</p>
-					<p class="display-6">'. $bookAuthor .'</p>
+				<div class="col-8 pt-5">
+					'; if($bookTitle) {
+						echo '<p class="display-1">'. $bookTitle .'</p>';
+					}
+					echo '
+					
+					'; if($bookAuthor) {
+						echo '<p class="display-6">'. $bookAuthor .'</p>';
+					}
+					echo '
 				</div>
-				<div class="col-4 p-5">
-					<p class="card-text class="lead"">'. $bookShortNote . '</p>
+				<div class="col-4 pt-5">
+					
+					'; if($bookShortNote) {
+						echo '<p class="card-text class="lead"">'. $bookShortNote . '</p>';
+					}
+					echo '
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-6">
-					<img id="bookImage" src="'. $bookImageLocation .'" alt="Book cover">
+					'; if($bookImageLocation) {
+						echo '<img id="bookImage" src="'. $bookImageLocation .'" alt="Book cover">';
+					}
+					echo '
 				</div>
 				<div class="col-4">
 					<div class="row">
 						<div class="col">
-							<p>in bezit: '. $bookOwnership .'</p>
+							'; if($bookOwnership) {
+								echo '<p>Bezit: '. $bookOwnership .'</p>';
+							}
+							echo '
 						</div>
 						<div class="col">
-							<p>gelezen: '. $bookReading .'</p>
+							'; if($bookReading) {
+								echo '<p>Gelezen: '. $bookReading .'</p>';
+							}
+							echo '
 						</div>
 					</div>
 					<div class="row">
 						<div class="col">
-							<p>score: 1/10</p>
+							'; if($bookRating) {
+								echo '<p>score: '. $bookRating .'</p>';
+							}
+							echo '
 						</div>
 					</div>
 					<div class="row">
 						<div class="col">
-							<p>geschreven review hier</p>
+							'; if($bookReview) {
+								echo '<div id="bookReview">review:<br> '. $bookReview .'</div>';
+							}
+							echo '
 						</div>
 					</div>
 					<div class="row">
@@ -62,7 +90,7 @@ function displayBook($book)
 							<a href="./changeDetailScreen.php?bookID=' . $bookID . '" type="button" class="btn btn-success">Aanpassen</a>
 						</div>
 						<div class="col">
-							<a href="../books/removebook.php?bookID=' . $bookID . '" type="button" class="btn btn-danger">Verwijderen</a>
+							<a href="../books/removebookDB.php?bookID=' . $bookID . '" type="button" class="btn btn-danger">Verwijderen</a>
 						</div>
 					</div>
 				</div>

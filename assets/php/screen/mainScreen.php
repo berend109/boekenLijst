@@ -35,7 +35,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 					<button class="btn btn-secondary" id="menu-btn">Boek Toevoegen</button>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a id="navbarProjectName" class="navbar-brand" href="http://localhost/boekenlijst/assets/php/screen/mainScreen.php">boekenlijst</a>
+					<a id="navbarProjectName" class="navbar-brand">boekenlijst</a>
 				</div>
 				<div class="d-flex justify-content-center">
 					<form action='../login/logout.php'>

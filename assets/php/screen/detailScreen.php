@@ -28,17 +28,26 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 
 	<body>
 
-		<nav class="navbar sticky-top navbar-light bg-light">
-			<a id="navbarProjectName" class="navbar-brand brand" href="http://localhost/boekenlijst/assets/php/screen/mainScreen.php">boekenlijst</a>
-			<form action='../login/logout.php'>
-				<button class="btn btn-danger form-control me-2">Sign out</button>
-			</form>
-		</nav>
+	<nav class="navbar sticky-top navbar-light bg-light">
+		<div class="container-fluid">
+			<div class="d-flex justify-content-start">
+				<a class="btn btn-secondary" id="menu-btn" href="http://localhost/boekenlijst/assets/php/screen/mainScreen.php">Terug</a>
+			</div>
+			<div class="d-flex justify-content-center">
+				<a id="navbarProjectName" class="navbar-brand">boekenlijst</a>
+			</div>
+			<div class="d-flex justify-content-center">
+				<form action='../login/logout.php'>
+					<button class="btn btn-danger form-control me-2">Sign out</button>
+				</form>
+			</div>
+		</div>
+	</nav>
 
-		<?php
-			$_SESSION["bookID"] = htmlspecialchars($_GET["bookID"]);
-			require_once("../books/detailBooks.php");
-		?>
+	<?php
+		$_SESSION["bookID"] = htmlspecialchars($_GET["bookID"]);
+		require_once("../books/displayDetailsBooks.php");
+	?>
 
 	</body>
 
