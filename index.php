@@ -12,9 +12,9 @@
 	<title>Boeken Lijst App</title>
 
 	<!-- bootstrap 5 css -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
-		rel="stylesheet" 
-		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 		crossorigin="anonymous">
 
 	<!-- custom css -->
@@ -33,6 +33,10 @@
 		<p class="text-center fs-5 mt-5">
 		Met deze applicatie ga jij je persoonlijke boeken bij kunnen houden.<br>
 		Je zult deze boeken dan in een nette lijst kunnen bezien en sorteren.
+		</p>
+		<p class="text-center fs-5 mt-5">
+		Nog geen account ??<br>
+		Type een naam in en je wordt naar registreer scherm toegelijd
 		</p>
 		<div id="login-div" class="p-5 mx-auto submitForm">
 			<form name="loginForm" id="loginForm" action="./assets/php/login/login.php" method="post" onsubmit="return checkLoginForm()">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Gegenereerd op: 11 mrt 2021 om 11:30
+-- Gegenereerd op: 17 mrt 2021 om 03:33
 -- Serverversie: 10.4.17-MariaDB
 -- PHP-versie: 8.0.0
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `BoekenLijstApp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `books`
+--
+
+CREATE TABLE `books` (
+  `name` text NOT NULL,
+  `author` text NOT NULL,
+  `shortNote` text DEFAULT NULL,
+  `imageLocation` text DEFAULT NULL,
+  `reading` text NOT NULL,
+  `ownership` text NOT NULL,
+  `usrId` int(11) NOT NULL,
+  `dataAdded` text NOT NULL DEFAULT current_timestamp(),
+  `review` text DEFAULT NULL,
+  `rating` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -51,7 +70,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

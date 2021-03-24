@@ -1,3 +1,12 @@
-.submitForm {
-	max-width: 50%;
+/* Top bar styling */
+#menu-btn {
+	background-color: #484848 !important;
+}
+
+#bookImage {
+	max-width: 100%;
+}
+
+#reviewBook {
+	width: 100%;
 }

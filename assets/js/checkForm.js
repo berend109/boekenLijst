@@ -17,7 +17,11 @@ function checkRegisterForm() {
 		alert("Alle gegevens dienen ingevuld te worden");
 		return false;
 	} else if (checkPSWD1 !== checkPSWD2) {
-		alert("Wachtwoorden dienen het zelfde te zijn")
+		alert("Wachtwoorden dienen het zelfde te zijn");
 		return false;
-	}	
+	}
+}
+
+function checkBookForm() {
+	// TODO: fill this function so its checks if there is even a book submitted when done.
 }
