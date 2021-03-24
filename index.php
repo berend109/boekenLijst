@@ -34,6 +34,10 @@
 		Met deze applicatie ga jij je persoonlijke boeken bij kunnen houden.<br>
 		Je zult deze boeken dan in een nette lijst kunnen bezien en sorteren.
 		</p>
+		<p class="text-center fs-5 mt-5">
+		Nog geen account ??<br>
+		Type een naam in en je wordt naar registreer scherm toegelijd
+		</p>
 		<div id="login-div" class="p-5 mx-auto submitForm">
 			<form name="loginForm" id="loginForm" action="./assets/php/login/login.php" method="post" onsubmit="return checkLoginForm()">
 				<div class="mb-3">
