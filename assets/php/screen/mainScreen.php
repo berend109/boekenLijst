@@ -91,7 +91,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 
 		<div class="container mt-5" id="booklistContainer">
 			<?php
-				require_once '../books/displayBooks.php';
+				require_once '../books/displayBookList.php';
 			?>
 		</div>
 
