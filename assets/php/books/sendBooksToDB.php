@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 		public function sendBook($con, $bookTitle, $imageLocation, $bookAuthor, $userid, $shortNote, $owner, $read, $bookID)
 		{
 			try {
-				$stmt = $con->prepare("INSERT INTO `books`(`bookID`, `name`, `author`, `shortNote`, `imageLocation`, `reading`, `ownership`, `usrId`, `dataAdded`) VALUES ('$bookID','$bookTitle','$bookAuthor','$shortNote','$imageLocation','$read','$owner','$userid', NOW())");
+				$stmt = $con->prepare("INSERT INTO `books`(`bookID`, `name`, `author`, `shortNote`, `imageLocation`, `reading`, `ownership`, `usrId`, `dataAdded`) VALUES ('$bookID','$bookTitle','$bookAuthor','$shortNote','$imageLocation','$read','$owner','$userid', now())");
 				$stmt->execute();
 
 				header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/mainScreen.php");
