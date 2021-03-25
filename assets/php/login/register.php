@@ -29,9 +29,11 @@ class register
 				echo "<br><br>";
 				echo "<button onclick=\"window.location.href='http://localhost/boekenlijst';\">Go back</button>";
 			} else {
-				$stmt = $con->prepare("INSERT INTO `users`(`naam`, `password`) VALUES ('$name', '$password')");
+				$usrID = uniqid();
+				$stmt = $con->prepare("INSERT INTO `users`(`naam`, `password`, `id`) VALUES ('$name', '$password', '$usrID')");
 				$stmt->execute();
-
+				
+				$_SESSION['id'] = $usrID;
 				$_SESSION["loggedIn"] = true;
 				$_SESSION["name"] = $_POST['name'];
 

@@ -60,15 +60,16 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 						</div>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Foto</p>
-							<input type="file" class="form-control" name="picture">
+							<input type="file" class="form-control" name="picture" required>
 						</div>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Korte notitie</p>
-							<textarea class="form-control text-center" name="shortNote" maxlength="100" placeholder="Max 100 karakters"></textarea>
+							<textarea class="form-control text-center" name="shortNote" maxlength="100" placeholder="Max 100 karakters" required></textarea>
 						</div>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Wel of niet in bezit</p>
 							<select class="form-select" name="ownership">
+								<option disabled selected value>Selecteer</option>
 								<option value="nee">nee</option>
 								<option value="ja">ja</option>
 							</select>
@@ -76,6 +77,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Wel of niet gelezen</p>
 							<select class="form-select" name="read">
+								<option disabled selected value>Selecteer</option>
 								<option value="nee">nee</option>
 								<option value="bezig">bezig</option>
 								<option value="ja">ja</option>

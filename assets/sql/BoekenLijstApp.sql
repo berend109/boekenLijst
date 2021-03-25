@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Gegenereerd op: 17 mrt 2021 om 03:33
+-- Gegenereerd op: 25 mrt 2021 om 11:52
 -- Serverversie: 10.4.17-MariaDB
 -- PHP-versie: 8.0.0
 
@@ -28,16 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `books` (
-  `name` text NOT NULL,
-  `author` text NOT NULL,
+  `bookID` text DEFAULT NULL,
+  `name` text DEFAULT NULL,
+  `author` text DEFAULT NULL,
   `shortNote` text DEFAULT NULL,
   `imageLocation` text DEFAULT NULL,
-  `reading` text NOT NULL,
-  `ownership` text NOT NULL,
-  `usrId` int(11) NOT NULL,
-  `dataAdded` text NOT NULL DEFAULT current_timestamp(),
+  `reading` text DEFAULT NULL,
+  `ownership` text DEFAULT NULL,
+  `usrId` text DEFAULT NULL,
+  `dataAdded` text DEFAULT current_timestamp(),
   `review` text DEFAULT NULL,
-  `rating` text DEFAULT NULL
+  `rating` text DEFAULT NULL,
+  `boookNumber` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -49,7 +51,8 @@ CREATE TABLE `books` (
 CREATE TABLE `users` (
   `naam` text NOT NULL,
   `password` text NOT NULL,
-  `id` int(255) NOT NULL
+  `id` text NOT NULL,
+  `ga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -57,20 +60,32 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexen voor tabel `books`
+--
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`boookNumber`);
+
+--
 -- Indexen voor tabel `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`ga`);
 
 --
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
+-- AUTO_INCREMENT voor een tabel `books`
+--
+ALTER TABLE `books`
+  MODIFY `boookNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
