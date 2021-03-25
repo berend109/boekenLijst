@@ -22,9 +22,6 @@ if (isset($_POST['submit'])) {
 		$pdo = new connection;
 		$con = $pdo->connect();
 
-		// verander de waardes als er input is van changedetailscreen anders behou ik db waarde
-		// voor update moet iedere waarde aan value hebben na korte onderzoek.
-
 		if($_FILES['picture']['size'] == true) {
 			$imageName = $_FILES['picture']['name'];
 			
