@@ -81,9 +81,6 @@ if (isset($_POST['submit'])) {
 			$updateReview = $_POST['review'];
 		}
 
-		// print_r($book['bookID']);
-		// die();
-
 		class sendBook
 		{
 			public function __construct() {}
