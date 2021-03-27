@@ -7,8 +7,6 @@ if (isset($_POST['submit'])) {
 
 	require_once '../db/conn.php';
 	require_once './getBooksFromDB.php';
-	
-	
 
 	function checkBook($books) 
 	{
@@ -21,6 +19,8 @@ if (isset($_POST['submit'])) {
 
 		$pdo = new connection;
 		$con = $pdo->connect();
+
+		$bookID = $book['bookID'];
 
 		if($_FILES['picture']['size'] == true) {
 			$imageName = $_FILES['picture']['name'];
@@ -79,21 +79,17 @@ if (isset($_POST['submit'])) {
 			$updateReview = $_POST['review'];
 		}
 
-		var_dump(($imageDestination == $book['imageLocation']));
-		// die();
-
 		class sendBook
 		{
 			public function __construct() {}
 
-			public function sendBook($con, $updateTitle, $updateImageLocation, $updateAuthor, $updateReview, $updateRating, $updateShortNote, $updateOwner, $updateRead)
+			public function sendBook($con, $updateTitle, $updateImageLocation, $updateAuthor, $updateReview, $updateRating, $updateShortNote, $updateOwner, $updateRead, $bookID)
 			{
 				try {
 					$stmt = $con->prepare("UPDATE `books` SET `name`='$updateTitle',`author`='$updateAuthor',`shortNote`='$updateShortNote',`imageLocation`='$updateImageLocation',`reading`='$updateRead',`ownership`='$updateOwner',`review`='$updateReview',`rating`='$updateRating' WHERE `bookID` = ?");
 					$stmt->execute([$_SESSION['bookID']]);
 					
-					header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/mainScreen.php");
-					echo 'test';
+					header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/changeDetailScreen.php?bookID=$bookID");
 				} catch (PDOException $e) {
 					echo "Something went wrong: " . $e->getMessage();
 				}
@@ -101,7 +97,7 @@ if (isset($_POST['submit'])) {
 		}
 
 		$reg = new sendBook();
-		$reg->sendBook($con, $updateTitle, $updateImageLocation, $updateAuthor, $updateReview, $updateRating, $updateShortNote, $updateOwner, $updateRead);
+		$reg->sendBook($con, $updateTitle, $updateImageLocation, $updateAuthor, $updateReview, $updateRating, $updateShortNote, $updateOwner, $updateRead, $bookID);
 	}
 
 	$bookFromDB = getBook($con, $books);

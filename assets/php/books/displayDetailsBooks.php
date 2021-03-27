@@ -72,7 +72,7 @@ function displayBook($book)
 					<div class="row">
 						<div class="col">
 							'; if($bookRating) {
-								echo '<p>score: '. $bookRating .'</p>';
+								echo '<p>Score: '. $bookRating .'</p>';
 							}
 							echo '
 						</div>
@@ -80,7 +80,7 @@ function displayBook($book)
 					<div class="row">
 						<div class="col">
 							'; if($bookReview) {
-								echo '<div id="bookReview">review:<br> '. $bookReview .'</div>';
+								echo '<div id="bookReview">Review:<br> '. $bookReview .'</div>';
 							}
 							echo '
 						</div>

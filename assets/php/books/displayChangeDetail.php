@@ -48,7 +48,7 @@ function displayBook($book)
 					<div class="col-4">
 						<div class="row">
 							<div class="col">
-								<p>in bezit: '. $bookOwnership .'</p>
+								<p>Bezit: '. $bookOwnership .'</p>
 								<select class="form-select" name="ownership">
 									<option disabled selected value>Selecteer</option>
 									<option value="nee">nee</option>
@@ -56,7 +56,7 @@ function displayBook($book)
 								</select>
 							</div>
 							<div class="col">
-								<p>gelezen: '. $bookReading .'</p>
+								<p>Gelezen: '. $bookReading .'</p>
 								<select class="form-select" name="read">
 									<option disabled selected value>Selecteer</option>
 									<option value="nee">nee</option>
@@ -68,7 +68,7 @@ function displayBook($book)
 						<div class="row">
 							<div class="col">
 								'; if($bookRating) {
-									echo '<p>score: '. $bookRating .'</p>';
+									echo '<p>Score: '. $bookRating .'</p>';
 								}
 								echo '
 								<input type="number" id="ratingBook"  style="-webkit-appearance: none;" name="rating" min="0" max="10" placeholder="Cijfer beoordeling boek (0-10)">
@@ -77,7 +77,7 @@ function displayBook($book)
 						<div class="row">
 							<div class="col">
 								'; if($bookReview) {
-									echo '<div id="bookReview">review:<br> '. $bookReview .'</div>';
+									echo '<div id="bookReview">Review:<br> '. $bookReview .'</div>';
 								}
 								echo '
 								<textarea type="text" id="reviewBook" name="review" placeholder="Schrijf hier een review over de boek"></textarea>
