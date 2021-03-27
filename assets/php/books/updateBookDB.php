@@ -7,8 +7,6 @@ if (isset($_POST['submit'])) {
 
 	require_once '../db/conn.php';
 	require_once './getBooksFromDB.php';
-	
-	
 
 	function checkBook($books) 
 	{
