@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
 	require_once '../db/conn.php';
 	require_once './getBooksFromDB.php';
 
-	function checkBook($books) 
+	function checkBook($books)
 	{
 		foreach ($books as $book) {
 			checkIfUpdate($book);
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 
 		if($_FILES['picture']['size'] == true) {
 			$imageName = $_FILES['picture']['name'];
-			
+
 			$imageExt = explode('.', $imageName);
 			$imageActualExt = strtolower(end($imageExt));
 			$imageNameNew = uniqid('', true).".".$imageActualExt;
@@ -88,8 +88,9 @@ if (isset($_POST['submit'])) {
 				try {
 					$stmt = $con->prepare("UPDATE `books` SET `name`='$updateTitle',`author`='$updateAuthor',`shortNote`='$updateShortNote',`imageLocation`='$updateImageLocation',`reading`='$updateRead',`ownership`='$updateOwner',`review`='$updateReview',`rating`='$updateRating' WHERE `bookID` = ?");
 					$stmt->execute([$_SESSION['bookID']]);
-					
+
 					header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/changeDetailScreen.php?bookID=$bookID");
+					echo '';
 				} catch (PDOException $e) {
 					echo "Something went wrong: " . $e->getMessage();
 				}
