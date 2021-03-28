@@ -29,6 +29,13 @@ class register
 				echo "<br><br>";
 				echo "<button onclick=\"window.location.href='http://localhost/boekenlijst';\">Go back</button>";
 			} else {
+				/*
+				De user id zal eigenlijk in de database moeten gebeuren.
+				nu heb je kans dat twee gebruikers dezelfde id krijgen.
+				Het wordt nu gebruikt omdat project niet zo groot is en het nodig is om de usr id in session te krijgen.
+				dit is nodig om de gebruiker na het registreren te kunne laten inloggen en boeken te kunnen toevoegen.
+				zonder dit is er geen usr id en geen methode om boeken aan een usr te verbinden.
+				 */
 				$usrID = uniqid();
 				$stmt = $con->prepare("INSERT INTO `users`(`naam`, `password`, `id`) VALUES ('$name', '$password', '$usrID')");
 				$stmt->execute();
