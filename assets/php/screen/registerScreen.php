@@ -31,7 +31,7 @@
 
 		<p class="text-center fs-2">Welkom</p>
 		<p class="text-center fs-5 mt-5">
-		Met deze applicatie ga jij je persoonlijke boeken bij kunnen houden.<br>
+		Met deze applicatie kan jij je eigen persoonlijke boekenlijst bijhouden.<br>
 		Je zult deze boeken dan in een nette lijst kunnen bezien en sorteren.
 		</p>
 
