@@ -90,7 +90,7 @@ function displayBook($book)
 							<a href="./changeDetailScreen.php?bookID=' . $bookID . '" type="button" class="btn btn-success">Aanpassen</a>
 						</div>
 						<div class="col">
-							<a href="../books/removebookDB.php?bookID=' . $bookID . '" type="button" class="btn btn-danger">Verwijderen</a>
+							<a href="../books/removebookDB.php?bookID=' . $bookID . '" onclick="return  confirm(\'Wilt u de boek verwijderen\')" type="button" class="btn btn-danger">Verwijderen</a>
 						</div>
 					</div>
 				</div>
