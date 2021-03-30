@@ -39,9 +39,7 @@ function getBookItem($con, $bookItem)
 		$stmt = $con->prepare("SELECT * FROM `books` WHERE `bookID` = ?");
 		$stmt->execute([$bookID]);
 
-		foreach (($stmt->fetchAll()) as $bookArray) {
-			array_push($bookItem, $bookArray);
-		}
+		$bookItem = $stmt->fetchAll();
 	} catch (PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}
