@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 		$pdo = new connection;
 		$con = $pdo->connect();
 
-		$bookID = $book['bookID'];
+		$bookID = $_SESSION["bookID"];
 
 		if($_FILES['picture']['size'] == true) {
 			$imageName = $_FILES['picture']['name'];
@@ -55,16 +55,16 @@ if (isset($_POST['submit'])) {
 			$updateShortNote = $_POST['shortNote'];
 		}
 
-		if($_POST['ownership'] == false) {
-			$updateOwner = $book['ownership'];
-		} else {
+		if(isset($_POST['ownership'])) {
 			$updateOwner = $_POST['ownership'];
+		} else {
+			$updateOwner = $book['ownership'];
 		}
 
-		if($_POST['read'] == false) {
-			$updateRead = $book['reading'];
-		} else {
+		if(isset($_POST['read'])) {
 			$updateRead = $_POST['read'];
+		} else {
+			$updateRead = $book['reading'];
 		}
 
 		if($_POST['rating'] == false) {
@@ -79,29 +79,28 @@ if (isset($_POST['submit'])) {
 			$updateReview = $_POST['review'];
 		}
 
-		class sendBook
+		class updateBook
 		{
 			public function __construct() {}
 
-			public function sendBook($con, $updateTitle, $updateImageLocation, $updateAuthor, $updateReview, $updateRating, $updateShortNote, $updateOwner, $updateRead, $bookID)
+			public function updateBook($con, $updateTitle, $updateImageLocation, $updateAuthor, $updateReview, $updateRating, $updateShortNote, $updateOwner, $updateRead, $bookID)
 			{
 				try {
-					$stmt = $con->prepare("UPDATE `books` SET `name`='$updateTitle',`author`='$updateAuthor',`shortNote`='$updateShortNote',`imageLocation`='$updateImageLocation',`reading`='$updateRead',`ownership`='$updateOwner',`review`='$updateReview',`rating`='$updateRating' WHERE `bookID` = ?");
-					$stmt->execute([$_SESSION['bookID']]);
+					$stmt = $con->prepare("UPDATE `books` SET `name`='$updateTitle',`author`='$updateAuthor',`shortNote`='$updateShortNote',`imageLocation`='$updateImageLocation',`reading`='$updateRead',`ownership`='$updateOwner',`review`='$updateReview',`rating`='$updateRating' WHERE `bookID` = '$bookID'");
+					$stmt->execute();
 
 					header("Refresh:0; url=http://localhost/boekenlijst/assets/php/screen/changeDetailScreen.php?bookID=$bookID");
-					echo '';
 				} catch (PDOException $e) {
 					echo "Something went wrong: " . $e->getMessage();
 				}
 			}
 		}
 
-		$reg = new sendBook();
-		$reg->sendBook($con, $updateTitle, $updateImageLocation, $updateAuthor, $updateReview, $updateRating, $updateShortNote, $updateOwner, $updateRead, $bookID);
+		$reg = new updateBook();
+		$reg->updateBook($con, $updateTitle, $updateImageLocation, $updateAuthor, $updateReview, $updateRating, $updateShortNote, $updateOwner, $updateRead, $bookID);
 	}
 
-	$bookFromDB = getBook($con, $books);
+	$bookFromDB = getBookItem($con, $books);
 	checkBook($bookFromDB);
 
 }
