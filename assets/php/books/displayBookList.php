@@ -60,7 +60,7 @@ function displayBook($book)
 				<div class="d-grid gap-2">
 					<a href="./changeDetailScreen.php?bookID=' . $bookID . '" type="button" class="btn btn-success">Aanpassen</a>
 					<a href="./detailScreen.php?bookID=' . $bookID . '" type="button" class="btn btn-info"> Details</a>
-					<a href="../books/removebookDB.php?bookID=' . $bookID . '" type="button" class="btn btn-danger">Verwijderen</a>
+					<a href="../books/removebookDB.php?bookID=' . $bookID . '" onclick="return  confirm(\'Wilt u de boek verwijderen\')" type="button" class="btn btn-danger">Verwijderen</a>
 				</div>
 			</div>
 		</div>
