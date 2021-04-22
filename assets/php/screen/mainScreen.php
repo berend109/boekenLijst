@@ -52,11 +52,11 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 					<form class="d-grid" action="../books/sendBooksToDB.php" method="post" enctype="multipart/form-data">
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Titel</p>
-							<input type="text" class="form-control text-center" name="title" required>
+							<input type="text" class="form-control text-center" maxlength="75" name="title" required>
 						</div>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Auteur</p>
-							<input type="text" class="form-control text-center" name="author" required>
+							<input type="text" class="form-control text-center" maxlength="75" name="author" required>
 						</div>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Foto</p>
