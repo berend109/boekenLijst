@@ -30,9 +30,9 @@ function displayBook($book)
 			<form action="../books/updateBookDB.php" method="POST" enctype="multipart/form-data">
 				<div class="row">
 					<div class="col-8 pt-5">
-						<input type="text" class="form-control text-center" name="title">
+						<input type="text" class="form-control text-center" maxlength="75" name="title">
 						<p class="display-1">'. $bookTitle .'</p>
-						<input type="text" class="form-control text-center" name="author">
+						<input type="text" class="form-control text-center" maxlength="75" name="author">
 						<p class="display-6">'. $bookAuthor .'</p>
 					</div>
 					<div class="col-4 pt-5">

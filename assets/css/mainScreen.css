@@ -1,7 +1,7 @@
 /* side bar styling */
 .side-navbar {
 	width: 25%;
-	height: 100%;
+	height: initial;
 	position: absolute;
 	margin-left: -25%;
 	transition: 1s;
