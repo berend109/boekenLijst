@@ -36,7 +36,7 @@ CREATE TABLE `books` (
   `reading` text DEFAULT NULL,
   `ownership` text DEFAULT NULL,
   `usrId` text DEFAULT NULL,
-  `dataAdded` text DEFAULT current_timestamp(),
+  `dataAdded` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `review` text DEFAULT NULL,
   `rating` text DEFAULT NULL,
   `boookNumber` int(11) NOT NULL

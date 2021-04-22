@@ -24,7 +24,7 @@ function displayBook($book)
 		$bookID = $book['bookID'];
 
 		echo '
-		<div class="row">
+		<div class="row position-fixed">
 			<div class="col-10 ">
 				<div class="card mb-3" id="bookCard">
 					<div class="row g-0">
