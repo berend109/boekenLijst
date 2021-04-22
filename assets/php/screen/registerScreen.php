@@ -46,11 +46,11 @@
 				</div>
 				<div class="mb-3">
 					<label for="pasword" class="form-label">Password</label>
-					<input type="password" class="form-control" name="pswdRegister1">
+					<input type="password" class="form-control" name="pswdRegister1" required>
 				</div>
 				<div class="mb-3">
 					<label for="pasword" class="form-label">Repeat Password</label>
-					<input type="password" class="form-control" name="pswdRegister2">
+					<input type="password" class="form-control" name="pswdRegister2" required>
 				</div>
 				<button type="submit" class="btn btn-success">Registreren</button>
 				<a class='btn btn-danger float-end' onclick="window.location.href='http://localhost/boekenlijst'">Terug naar login</a>

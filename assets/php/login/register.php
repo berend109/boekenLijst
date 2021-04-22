@@ -52,7 +52,7 @@ class register
 	}
 }
 
-if (strlen($name) >= 1 && strlen($password) >= 1) {
+if (strlen($name) && strlen($password)) {
 	if (strcmp($password, $password2) !== 0) {
 		echo "Use the same password";
 		echo "<br><br>";
