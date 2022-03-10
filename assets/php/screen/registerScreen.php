@@ -40,8 +40,12 @@
 				<div class="mb-3">
 					<label for="nickname" class="form-label">Nickname</label>
 					<?php
-						$name = ($_SESSION['name']);
-						echo '<input type="text" class="form-control" name="name" value="'. $name .'" ?>';
+						if (isset($_SESSION['name'])) {
+							$name = $_SESSION['name'];
+							echo '<input type="text" id="nicknameInputField" class="form-control" name="name" value="' . $name . '">';
+						} else {
+							echo '<input type="text" id="nicknameInputField" class="form-control" name="name" placeholder="Nickname" required>';
+						}
 					?>
 				</div>
 				<div class="mb-3">
