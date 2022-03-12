@@ -30,6 +30,7 @@ if (isset($_POST['submit'])) {
 			$imageNameNew = uniqid('', true).".".$imageActualExt;
 			$imageDestination = "../../bookImages/".$imageNameNew;
 			if($imageDestination != $book['imageLocation']) {
+				unlink($book['imageLocation']);
 				require_once('storeBookImage.php');
 				$updateImageLocation = storeBookImage();
 			}
