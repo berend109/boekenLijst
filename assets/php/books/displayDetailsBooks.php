@@ -40,9 +40,9 @@ function displayBook($book)
 					echo '
 				</div>
 				<div class="col-4 pt-5">
-					
 					'; if($bookShortNote) {
-						echo '<p class="card-text class="lead"">'. $bookShortNote . '</p>';
+						echo '<p>Notitie:</p>';
+						echo '<p class="card-text">'. $bookShortNote . '</p>';
 					}
 					echo '
 				</div>
@@ -54,7 +54,7 @@ function displayBook($book)
 					}
 					echo '
 				</div>
-				<div class="col-4">
+				<div class="col-sm">
 					<div class="row">
 						<div class="col">
 							'; if($bookOwnership) {
@@ -80,7 +80,8 @@ function displayBook($book)
 					<div class="row">
 						<div class="col">
 							'; if($bookReview) {
-								echo '<div id="bookReview">Review:<br> '. $bookReview .'</div>';
+								echo '<p>Review: </p>';
+								echo '<p class="card-text">'. $bookReview .'</p>';
 							}
 							echo '
 						</div>
