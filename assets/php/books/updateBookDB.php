@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
 			$imageDestination = "../../bookImages/".$imageNameNew;
 			if($imageDestination != $book['imageLocation']) {
 				require_once('storeBookImage.php');
-				$updateImageLocation = storeBookImage($imageDestination);
+				$updateImageLocation = storeBookImage();
 			}
 		} else {
 			$updateImageLocation = $book['imageLocation'];

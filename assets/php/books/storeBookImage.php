@@ -1,18 +1,16 @@
 <?php
 
-$imageDestination = "";
-
-function storeBookImage($imageDestination) {
+function storeBookImage() {
 	$imageName = $_FILES['picture']['name'];
 	$imageTMPName = $_FILES['picture']['tmp_name'];
 	$imageSize = $_FILES['picture']['size'];
 	$imageError = $_FILES['picture']['error'];
-	
+
 	$imageExt = explode('.', $imageName);
 	$imageActualExt = strtolower(end($imageExt));
 	$imageNameNew = uniqid('', true).".".$imageActualExt;
 	$imageDestination = "../../bookImages/".$imageNameNew;
-	
+
 	// what images are allowed and what max size is allowed
 	$allowed = array('jpg', 'jpeg', 'png');
 	if (in_array($imageActualExt, $allowed)) {
@@ -29,7 +27,7 @@ function storeBookImage($imageDestination) {
 			return 0;
 		}
 	} else {
-		echo "Je hebt verkeerde foto type geupload";
+		echo "Je hebt een verkeerde foto type geupload";
 		return 0;
 	}
 
