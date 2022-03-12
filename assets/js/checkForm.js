@@ -23,5 +23,13 @@ function checkRegisterForm() {
 }
 
 function checkBookForm() {
-	// TODO: fill this function so its checks if there is even a book submitted when done.
+	let title = document.getElementById('title').value; title.trim();
+	let author = document.getElementById('author').value; author.trim();
+	let picture = document.getElementById('picture').value; picture.trim();
+	let shortNote = document.getElementById('shortNote').value; shortNote.trim();
+	if (!title || !author || !picture || !shortNote) {
+		alert('Eerst alles invullen graag !!');
+		window.location.reload();
+		return false;
+	}
 }

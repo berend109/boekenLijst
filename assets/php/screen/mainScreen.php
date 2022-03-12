@@ -49,22 +49,22 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 			<div class="content">
 				<div class="text-light bg-secondary side-navbar" id="sidebar">
 					<a class="nav-link h3 text-white my-2 text-center">Boek Toevoegen</a>
-					<form class="d-grid" action="../books/sendBooksToDB.php" method="post" enctype="multipart/form-data">
+					<form class="d-grid" action="../books/sendBooksToDB.php" method="post" enctype="multipart/form-data" onsubmit="return checkBookForm()">
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Titel</p>
-							<input type="text" class="form-control text-center" maxlength="75" name="title" required>
+							<input type="text" id="title" class="form-control text-center" maxlength="75" name="title" required>
 						</div>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Auteur</p>
-							<input type="text" class="form-control text-center" maxlength="75" name="author" required>
+							<input type="text" id="author" class="form-control text-center" maxlength="75" name="author" required>
 						</div>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Foto</p>
-							<input type="file" class="form-control" name="picture" required>
+							<input type="file" id="picture" class="form-control" name="picture" required>
 						</div>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Korte notitie</p>
-							<textarea class="form-control text-center" name="shortNote" maxlength="100" placeholder="Max 100 karakters" required></textarea>
+							<textarea class="form-control text-center" id="shortNote" name="shortNote" maxlength="100" placeholder="Max 100 karakters" required></textarea>
 						</div>
 						<div class="mt-0 mb-0 p-3">
 							<p class="text-center form-title">Wel of niet in bezit</p>
@@ -98,6 +98,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 		</div>
 
 		<script src="../../js/sidebar.js"></script>
+		<script src="../../js/checkForm.js"></script>
 
 	</body>
 
