@@ -19,7 +19,8 @@ if (isset($_POST['submit'])) {
 	$bookID = uniqid();
 	// store image local and get imageDestination variable back with the location.
 	require_once('storeBookImage.php');
-	$imageLocation = storeBookImage($imageDestination);
+	$imageDestination = "";
+	$imageLocation = storeBookImage();
 
 	class sendBook
 	{

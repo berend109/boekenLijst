@@ -1,7 +1,7 @@
 <?php
-    session_start();
+	session_start();
 
-	include_once './assets/php/db/conn.php';
+	include_once '../db/conn.php';
 ?>
 
 <!DOCTYPE html>

@@ -37,7 +37,8 @@ function displayBook($book)
 					</div>
 					<div class="col-4 pt-5">
 						<textarea style="resize: none;" class="form-control text-center" name="shortNote" maxlength="100" placeholder="Max 100 karakters"></textarea>
-						<p class="card-text class="lead"">'. $bookShortNote . '</p>
+						<p>Notitie:</p>
+						<p class="card-text">'. $bookShortNote . '</p>
 					</div>
 				</div>
 				<div class="row">
@@ -45,7 +46,7 @@ function displayBook($book)
 						<input type="file" class="form-control" name="picture">
 						<img id="bookImage" src="'. $bookImageLocation .'" alt="Book cover">
 					</div>
-					<div class="col-4">
+					<div class="col-sm">
 						<div class="row">
 							<div class="col">
 								<p>Bezit: '. $bookOwnership .'</p>
@@ -77,10 +78,11 @@ function displayBook($book)
 						<div class="row">
 							<div class="col">
 								'; if($bookReview) {
-									echo '<div id="bookReview">Review:<br> '. $bookReview .'</div>';
+									echo '<p>Review: </p>';
+									echo '<p class="card-text">'. $bookReview .'</p>';
 								}
 								echo '
-								<textarea type="text" id="reviewBook" name="review" placeholder="Schrijf hier een review over de boek"></textarea>
+								<textarea type="text" id="textReviewBook" name="review" placeholder="Schrijf hier een review over de boek"></textarea>
 							</div>
 						</div>
 						<div class="row">

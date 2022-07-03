@@ -32,7 +32,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) { ?>
 	<nav class="navbar sticky-top navbar-light bg-light">
 		<div class="container-fluid">
 			<div class="d-flex justify-content-start">
-				<a class="btn btn-secondary" id="menu-btn" href="http://localhost/boekenlijst/assets/php/screen/mainScreen.php">Terug</a>
+				<a class="btn btn-secondary" id="menu-btn" href="http://localhost/boekenlijst/assets/php/screen/mainScreen.php">Home</a>
 			</div>
 			<div class="d-flex justify-content-center">
 				<a id="navbarProjectName" class="navbar-brand">boekenlijst</a>
